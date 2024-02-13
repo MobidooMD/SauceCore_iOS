@@ -39,7 +39,7 @@ Xcode에서 프로젝트를 열고 `File` > `Swift Packages` > `Add Package Depe
 ```swift
 import SauceCore_iOS
 
-class WebViewController: WebViewManager { ..
+class WebViewController: WebViewManager { 
 
  //스크립트 메시지를 처리하기 위한 대리자 설정
 self.delegate = self
@@ -49,6 +49,7 @@ self.messageHandlerNames = [.customCoupon, .issueCoupon, ...] // 핸들러 추�
 
  //URL 로드
 loadURL("https://www.example.com")
+}
 ```
 
 #### WebViewManagerDelegate 구현
