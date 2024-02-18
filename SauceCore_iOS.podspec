@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'SauceCore_iOS'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of SauceCore_iOS.'
+  s.summary          = 'Sauce SDK'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -21,21 +21,24 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/DevPlayNew/SauceCore_iOS'
+  s.homepage         = 'https://github.com/MobidooMD/SauceCore_iOS.git'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'DevPlayNew' => 'banwith7@gmail.com' }
-  s.source           = { :git => 'https://github.com/DevPlayNew/SauceCore_iOS.git', :tag => s.version.to_s }
+  s.author           = { 'DevPlayNew' => 'keaton@mobidoo.co.kr' }
+  s.source           = { :git => 'https://github.com/MobidooMD/SauceCore_iOS.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '12.0'
+  s.swift_versions = '5.0'
 
-  s.source_files = 'SauceCore_iOS/Classes/**/*'
+  s.source_files = 'SauceCore_iOS/Classes/**/*.{swift}'
   
-  # s.resource_bundles = {
-  #   'SauceCore_iOS' => ['SauceCore_iOS/Assets/*.png']
-  # }
+  s.resource_bundles = {
+    'assets' => ['SauceCore_iOS/Assets/*.xcassets']
+  }
 
+  # s.resources = 'SauceCore_iOS/Assets/*.xcassets'
+  
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
