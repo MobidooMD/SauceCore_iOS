@@ -1,0 +1,6 @@
+framework module SauceCore_iOS {
+  umbrella header "SauceCore_iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

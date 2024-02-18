@@ -1,0 +1,986 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		085D7FE4B0C8FDAB910DBCE4563588DB /* Pods-SauceCore_iOS_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B677211751BE80B73FC7F89FD84FD4 /* Pods-SauceCore_iOS_Example-dummy.m */; };
+		163089C980ADBBFA29A5269D10168038 /* Pods-SauceCore_iOS_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 749A1C9963A9B5745A50740D3514F1A4 /* Pods-SauceCore_iOS_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2034A1DDE18C0C782E00F4B502F8F968 /* PIPKitEventDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7371A67B96ECB34CAB3C81B0A75D32 /* PIPKitEventDispatcher.swift */; };
+		2BC9EEF85DBB0405ACC835F92B885962 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		2DFF4AC6A647D05BD561F3A0B8C17560 /* SauceCore_iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDAB8980837681B86F59A3FE72A3D50 /* SauceCore_iOS-dummy.m */; };
+		32D5B05E27E261BA3C98E157928374AF /* Pods-SauceCore_iOS_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 34693144B42C95A6569646CC9794C8F2 /* Pods-SauceCore_iOS_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		33B8B5A1EFF6F33D0F76707B7C58313A /* UIWindow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761891D26B7773F7C575CB5807276BE /* UIWindow+Extension.swift */; };
+		39C4BD8EC469180FAD0519492FBD998D /* AVPIPKitUsable+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34E94801AE45F805F3EDC3E311EDCE /* AVPIPKitUsable+UIKit.swift */; };
+		3B7577E56F39364EF30AB8ED74C77C34 /* SauceCore_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB120EF1A7F2CFB6BEF44FA6996AA037 /* SauceCore_iOS.swift */; };
+		5351A673626F9619DAB763E3D62ABE2D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		55C099391C86FDB3EE310168BBF48F5E /* PIPUsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64A0DAB0E5A04A858FB6CB7B4E015A0 /* PIPUsable.swift */; };
+		5636AFC76C4DA9218F52E79C6A8D5D74 /* PIPKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9539F37262BBEB53B756BD7FC01319CF /* PIPKit.swift */; };
+		56A7697224520EB6CCA77A53DE7570BE /* AVPIPKitUsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFD9C9988610DFF335E04A7E5EE6A62 /* AVPIPKitUsable.swift */; };
+		704CC8A2E34330F2828D6D194D17D660 /* AVPIPKitRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2B2E4378151F0EAC35955F13BFDE48 /* AVPIPKitRenderer.swift */; };
+		705806BEA219311C0EF1AAEAD55CEC37 /* AVPIPKitVideoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D660756E45B872FF0E3A07EF02AC1B /* AVPIPKitVideoProvider.swift */; };
+		76AAE0D307F8B113C81563C5D5818A15 /* Pods-SauceCore_iOS_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ADDF89882271B62A2BFE0E18A9B6064 /* Pods-SauceCore_iOS_Tests-dummy.m */; };
+		7B63FC9AB2F1DD95FD5B2F90345D6482 /* SauceCore_iOS-assets in Resources */ = {isa = PBXBuildFile; fileRef = 901444E82F8CA57852F2851C1CE4C666 /* SauceCore_iOS-assets */; };
+		7F34EA837F132BB497487E121AEB6A44 /* SauceCore_iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FA402517621A4A181A9237DD9FE246C /* SauceCore_iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		81A116023BC471B73341372E2DF2CA8A /* UIView+Associated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9806A8B0873BEB7505B3AF9383A37B8D /* UIView+Associated.swift */; };
+		A87ABBAA28E464E39AAED7D518C661E0 /* UIViewController+Associated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093907A7B31B78E5CB5616917A2E87E0 /* UIViewController+Associated.swift */; };
+		CABE87BBB6D4019DDCCC5EF8EA30DA3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EF04445FACF4B159D41FB3D2C637AE4 /* Assets.xcassets */; };
+		D20472E20689998F63E0E1F1C61EA381 /* AVPIPKitVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C805C3DCB28032AB253A4DF80529647D /* AVPIPKitVideoController.swift */; };
+		ED3F50DB1C61C60A86B828B5D51577C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3F6E412374E149A20B110B19ED6DDD35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A3FC503553B0CECCA61A90FB2D910B1;
+			remoteInfo = "SauceCore_iOS-assets";
+		};
+		83ECE6551D36B6D54EFF3D93A7186724 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 73D34E20E8792A27A1C5C542BCDE4BD6;
+			remoteInfo = "Pods-SauceCore_iOS_Example";
+		};
+		B65333D9951936ABBB472D67F1690C73 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5980FF9213045A8277302D08D695609E;
+			remoteInfo = SauceCore_iOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		028A84A1DCEBD7719DE9288E1543D2E9 /* Pods-SauceCore_iOS_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SauceCore_iOS_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		093907A7B31B78E5CB5616917A2E87E0 /* UIViewController+Associated.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIViewController+Associated.swift"; sourceTree = "<group>"; };
+		0B4612ED0DB781262612264DD574BD39 /* SauceCore_iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SauceCore_iOS.modulemap; sourceTree = "<group>"; };
+		0BFD9C9988610DFF335E04A7E5EE6A62 /* AVPIPKitUsable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AVPIPKitUsable.swift; sourceTree = "<group>"; };
+		0D2B2E4378151F0EAC35955F13BFDE48 /* AVPIPKitRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AVPIPKitRenderer.swift; sourceTree = "<group>"; };
+		10A5F502B79FFB2FBF1CC76570716EFA /* Pods-SauceCore_iOS_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SauceCore_iOS_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		1EF04445FACF4B159D41FB3D2C637AE4 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = SauceCore_iOS/Assets/Assets.xcassets; sourceTree = "<group>"; };
+		269C7A052B907BAF3A9D5D2560DA87CE /* Pods-SauceCore_iOS_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SauceCore_iOS_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		34693144B42C95A6569646CC9794C8F2 /* Pods-SauceCore_iOS_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SauceCore_iOS_Example-umbrella.h"; sourceTree = "<group>"; };
+		39994C5E965E6E9A3C84E07B645A3BBF /* Pods-SauceCore_iOS_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SauceCore_iOS_Example.release.xcconfig"; sourceTree = "<group>"; };
+		42AE1F44177ABB1DE578FA298BF0AE20 /* SauceCore_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SauceCore_iOS.release.xcconfig; sourceTree = "<group>"; };
+		4DDAB8980837681B86F59A3FE72A3D50 /* SauceCore_iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SauceCore_iOS-dummy.m"; sourceTree = "<group>"; };
+		4FF89AC8EA893A38795BFE33E02645BC /* Pods-SauceCore_iOS_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-SauceCore_iOS_Example"; path = Pods_SauceCore_iOS_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5514F2642527D4D37041C17F44968484 /* SauceCore_iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SauceCore_iOS-prefix.pch"; sourceTree = "<group>"; };
+		60B86201290486BB65226A228E9153FC /* SauceCore_iOS.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = SauceCore_iOS.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		6761891D26B7773F7C575CB5807276BE /* UIWindow+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extension.swift"; sourceTree = "<group>"; };
+		6DDA2E20AD61E542B0D5F134F060D7C9 /* Pods-SauceCore_iOS_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SauceCore_iOS_Example-frameworks.sh"; sourceTree = "<group>"; };
+		6FA402517621A4A181A9237DD9FE246C /* SauceCore_iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SauceCore_iOS-umbrella.h"; sourceTree = "<group>"; };
+		7168F0FEAF43E66B316184065F198528 /* Pods-SauceCore_iOS_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SauceCore_iOS_Tests-Info.plist"; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		749A1C9963A9B5745A50740D3514F1A4 /* Pods-SauceCore_iOS_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SauceCore_iOS_Tests-umbrella.h"; sourceTree = "<group>"; };
+		887BDECD7A465157CA2D1C51B5F735C4 /* SauceCore_iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SauceCore_iOS-Info.plist"; sourceTree = "<group>"; };
+		8D7023C93564926939C744906925153F /* ResourceBundle-assets-SauceCore_iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-assets-SauceCore_iOS-Info.plist"; sourceTree = "<group>"; };
+		901444E82F8CA57852F2851C1CE4C666 /* SauceCore_iOS-assets */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "SauceCore_iOS-assets"; path = assets.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		94732A17E6DFAC74EAF8D16B4350EB85 /* Pods-SauceCore_iOS_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-SauceCore_iOS_Tests"; path = Pods_SauceCore_iOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		94E4C1105E51B2B8F72AF328A46AC496 /* Pods-SauceCore_iOS_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SauceCore_iOS_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		9539F37262BBEB53B756BD7FC01319CF /* PIPKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PIPKit.swift; sourceTree = "<group>"; };
+		9806A8B0873BEB7505B3AF9383A37B8D /* UIView+Associated.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIView+Associated.swift"; sourceTree = "<group>"; };
+		98D660756E45B872FF0E3A07EF02AC1B /* AVPIPKitVideoProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AVPIPKitVideoProvider.swift; sourceTree = "<group>"; };
+		9ADDF89882271B62A2BFE0E18A9B6064 /* Pods-SauceCore_iOS_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SauceCore_iOS_Tests-dummy.m"; sourceTree = "<group>"; };
+		9BEB7CD8CA67FE39BB8A13D515437934 /* SauceCore_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SauceCore_iOS.debug.xcconfig; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		AE34E94801AE45F805F3EDC3E311EDCE /* AVPIPKitUsable+UIKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "AVPIPKitUsable+UIKit.swift"; sourceTree = "<group>"; };
+		AE7371A67B96ECB34CAB3C81B0A75D32 /* PIPKitEventDispatcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PIPKitEventDispatcher.swift; sourceTree = "<group>"; };
+		B0041D5457FC5DD700DBE4CD964EC283 /* Pods-SauceCore_iOS_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SauceCore_iOS_Example.modulemap"; sourceTree = "<group>"; };
+		BDE7387252D19159D7B8D6EAB743759B /* SauceCore_iOS */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SauceCore_iOS; path = SauceCore_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C805C3DCB28032AB253A4DF80529647D /* AVPIPKitVideoController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AVPIPKitVideoController.swift; sourceTree = "<group>"; };
+		C98D6E03160B4E1F6896EAFC4B6B7ED7 /* Pods-SauceCore_iOS_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SauceCore_iOS_Example-Info.plist"; sourceTree = "<group>"; };
+		CBA9C53150CF6A3EF2236CBA03FB36FE /* Pods-SauceCore_iOS_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SauceCore_iOS_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		D1AF8E25C3D2D72F00BDA67D7F3287F2 /* Pods-SauceCore_iOS_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SauceCore_iOS_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		D1D593C31DCC49DC1556C814111C6DBB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		D64A0DAB0E5A04A858FB6CB7B4E015A0 /* PIPUsable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PIPUsable.swift; sourceTree = "<group>"; };
+		D897FA0A44E0802BC35FE87F2C6E2CF9 /* Pods-SauceCore_iOS_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SauceCore_iOS_Tests.modulemap"; sourceTree = "<group>"; };
+		D9B677211751BE80B73FC7F89FD84FD4 /* Pods-SauceCore_iOS_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SauceCore_iOS_Example-dummy.m"; sourceTree = "<group>"; };
+		EDC63F60F417FBBD1017B095B2FE7BFF /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		F3711952A83A6859F499CF3176788FFF /* Pods-SauceCore_iOS_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SauceCore_iOS_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		FB120EF1A7F2CFB6BEF44FA6996AA037 /* SauceCore_iOS.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SauceCore_iOS.swift; path = SauceCore_iOS/Classes/SauceCore_iOS.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		217CD1BD96FB03413DBE36ACDC650171 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BC9EEF85DBB0405ACC835F92B885962 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2932AD1BAFB69B3B0A5B5881856576A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6225F06EF4ED2843A284D750A12F630D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED3F50DB1C61C60A86B828B5D51577C9 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5B862E8ECBD3AE72A4E190715645231 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5351A673626F9619DAB763E3D62ABE2D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		013C9B238103EE2627267C96671A87DA /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				EDC63F60F417FBBD1017B095B2FE7BFF /* LICENSE */,
+				D1D593C31DCC49DC1556C814111C6DBB /* README.md */,
+				60B86201290486BB65226A228E9153FC /* SauceCore_iOS.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		0C36BBAF3E508F333B23A81B28FF81EC /* SauceCore_iOS */ = {
+			isa = PBXGroup;
+			children = (
+				1EF04445FACF4B159D41FB3D2C637AE4 /* Assets.xcassets */,
+				FB120EF1A7F2CFB6BEF44FA6996AA037 /* SauceCore_iOS.swift */,
+				6FEE5AE9B16BE59EDE588F0E899CB5E4 /* PIPKit */,
+				013C9B238103EE2627267C96671A87DA /* Pod */,
+				FB1B97EAD1129E79FA22D481CDB86D4C /* Support Files */,
+			);
+			name = SauceCore_iOS;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		0DF24AE2E852A5D2010267BAF7143283 /* PIPKit */ = {
+			isa = PBXGroup;
+			children = (
+				9539F37262BBEB53B756BD7FC01319CF /* PIPKit.swift */,
+				AE7371A67B96ECB34CAB3C81B0A75D32 /* PIPKitEventDispatcher.swift */,
+				D64A0DAB0E5A04A858FB6CB7B4E015A0 /* PIPUsable.swift */,
+			);
+			name = PIPKit;
+			path = PIPKit;
+			sourceTree = "<group>";
+		};
+		0EA1FF0AFB4C9F7B48CCE008544D3032 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4FF89AC8EA893A38795BFE33E02645BC /* Pods-SauceCore_iOS_Example */,
+				94732A17E6DFAC74EAF8D16B4350EB85 /* Pods-SauceCore_iOS_Tests */,
+				BDE7387252D19159D7B8D6EAB743759B /* SauceCore_iOS */,
+				901444E82F8CA57852F2851C1CE4C666 /* SauceCore_iOS-assets */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		330EE086BB1EC6AB652B46BAD6C700FF /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9806A8B0873BEB7505B3AF9383A37B8D /* UIView+Associated.swift */,
+				093907A7B31B78E5CB5616917A2E87E0 /* UIViewController+Associated.swift */,
+				6761891D26B7773F7C575CB5807276BE /* UIWindow+Extension.swift */,
+			);
+			name = Extension;
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		3FAD08680FB1B908F5AC4986C576DC94 /* Pods-SauceCore_iOS_Example */ = {
+			isa = PBXGroup;
+			children = (
+				B0041D5457FC5DD700DBE4CD964EC283 /* Pods-SauceCore_iOS_Example.modulemap */,
+				94E4C1105E51B2B8F72AF328A46AC496 /* Pods-SauceCore_iOS_Example-acknowledgements.markdown */,
+				CBA9C53150CF6A3EF2236CBA03FB36FE /* Pods-SauceCore_iOS_Example-acknowledgements.plist */,
+				D9B677211751BE80B73FC7F89FD84FD4 /* Pods-SauceCore_iOS_Example-dummy.m */,
+				6DDA2E20AD61E542B0D5F134F060D7C9 /* Pods-SauceCore_iOS_Example-frameworks.sh */,
+				C98D6E03160B4E1F6896EAFC4B6B7ED7 /* Pods-SauceCore_iOS_Example-Info.plist */,
+				34693144B42C95A6569646CC9794C8F2 /* Pods-SauceCore_iOS_Example-umbrella.h */,
+				10A5F502B79FFB2FBF1CC76570716EFA /* Pods-SauceCore_iOS_Example.debug.xcconfig */,
+				39994C5E965E6E9A3C84E07B645A3BBF /* Pods-SauceCore_iOS_Example.release.xcconfig */,
+			);
+			name = "Pods-SauceCore_iOS_Example";
+			path = "Target Support Files/Pods-SauceCore_iOS_Example";
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		6BFA1474B1D4E64A9AAC447073896B95 /* AVPIPKit */ = {
+			isa = PBXGroup;
+			children = (
+				0D2B2E4378151F0EAC35955F13BFDE48 /* AVPIPKitRenderer.swift */,
+				0BFD9C9988610DFF335E04A7E5EE6A62 /* AVPIPKitUsable.swift */,
+				AE34E94801AE45F805F3EDC3E311EDCE /* AVPIPKitUsable+UIKit.swift */,
+				C805C3DCB28032AB253A4DF80529647D /* AVPIPKitVideoController.swift */,
+				98D660756E45B872FF0E3A07EF02AC1B /* AVPIPKitVideoProvider.swift */,
+			);
+			name = AVPIPKit;
+			path = AVPIPKit;
+			sourceTree = "<group>";
+		};
+		6FEE5AE9B16BE59EDE588F0E899CB5E4 /* PIPKit */ = {
+			isa = PBXGroup;
+			children = (
+				6BFA1474B1D4E64A9AAC447073896B95 /* AVPIPKit */,
+				330EE086BB1EC6AB652B46BAD6C700FF /* Extension */,
+				0DF24AE2E852A5D2010267BAF7143283 /* PIPKit */,
+			);
+			name = PIPKit;
+			path = SauceCore_iOS/Classes/PIPKit;
+			sourceTree = "<group>";
+		};
+		79729942635953643AE485588DF658C3 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3FAD08680FB1B908F5AC4986C576DC94 /* Pods-SauceCore_iOS_Example */,
+				9EB099A537B3E7BA303E6B6567A375E7 /* Pods-SauceCore_iOS_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		9EB099A537B3E7BA303E6B6567A375E7 /* Pods-SauceCore_iOS_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				D897FA0A44E0802BC35FE87F2C6E2CF9 /* Pods-SauceCore_iOS_Tests.modulemap */,
+				D1AF8E25C3D2D72F00BDA67D7F3287F2 /* Pods-SauceCore_iOS_Tests-acknowledgements.markdown */,
+				269C7A052B907BAF3A9D5D2560DA87CE /* Pods-SauceCore_iOS_Tests-acknowledgements.plist */,
+				9ADDF89882271B62A2BFE0E18A9B6064 /* Pods-SauceCore_iOS_Tests-dummy.m */,
+				7168F0FEAF43E66B316184065F198528 /* Pods-SauceCore_iOS_Tests-Info.plist */,
+				749A1C9963A9B5745A50740D3514F1A4 /* Pods-SauceCore_iOS_Tests-umbrella.h */,
+				028A84A1DCEBD7719DE9288E1543D2E9 /* Pods-SauceCore_iOS_Tests.debug.xcconfig */,
+				F3711952A83A6859F499CF3176788FFF /* Pods-SauceCore_iOS_Tests.release.xcconfig */,
+			);
+			name = "Pods-SauceCore_iOS_Tests";
+			path = "Target Support Files/Pods-SauceCore_iOS_Tests";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				F6E0266E22B6B4472DA3E4A4D50D485C /* Development Pods */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				0EA1FF0AFB4C9F7B48CCE008544D3032 /* Products */,
+				79729942635953643AE485588DF658C3 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F6E0266E22B6B4472DA3E4A4D50D485C /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0C36BBAF3E508F333B23A81B28FF81EC /* SauceCore_iOS */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		FB1B97EAD1129E79FA22D481CDB86D4C /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8D7023C93564926939C744906925153F /* ResourceBundle-assets-SauceCore_iOS-Info.plist */,
+				0B4612ED0DB781262612264DD574BD39 /* SauceCore_iOS.modulemap */,
+				4DDAB8980837681B86F59A3FE72A3D50 /* SauceCore_iOS-dummy.m */,
+				887BDECD7A465157CA2D1C51B5F735C4 /* SauceCore_iOS-Info.plist */,
+				5514F2642527D4D37041C17F44968484 /* SauceCore_iOS-prefix.pch */,
+				6FA402517621A4A181A9237DD9FE246C /* SauceCore_iOS-umbrella.h */,
+				9BEB7CD8CA67FE39BB8A13D515437934 /* SauceCore_iOS.debug.xcconfig */,
+				42AE1F44177ABB1DE578FA298BF0AE20 /* SauceCore_iOS.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/SauceCore_iOS";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		88C75FA94AA6CBE0643741D9A4D9B9BF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F34EA837F132BB497487E121AEB6A44 /* SauceCore_iOS-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		918E00B0EF2A05720F3359A6EE0D246C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32D5B05E27E261BA3C98E157928374AF /* Pods-SauceCore_iOS_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5DAEAC4CFBE2244BF32C6465048C5CB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				163089C980ADBBFA29A5269D10168038 /* Pods-SauceCore_iOS_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4A3FC503553B0CECCA61A90FB2D910B1 /* SauceCore_iOS-assets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1E72B30A8992AE66EF2E9B5797F0EB99 /* Build configuration list for PBXNativeTarget "SauceCore_iOS-assets" */;
+			buildPhases = (
+				8E668505A8C91224FE5DF7B114F4EED6 /* Sources */,
+				2932AD1BAFB69B3B0A5B5881856576A5 /* Frameworks */,
+				72AE59C63EF061470E3C11899F86F4E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SauceCore_iOS-assets";
+			productName = assets;
+			productReference = 901444E82F8CA57852F2851C1CE4C666 /* SauceCore_iOS-assets */;
+			productType = "com.apple.product-type.bundle";
+		};
+		5980FF9213045A8277302D08D695609E /* SauceCore_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D371BECDDD81D45667CD97F2D1833A12 /* Build configuration list for PBXNativeTarget "SauceCore_iOS" */;
+			buildPhases = (
+				88C75FA94AA6CBE0643741D9A4D9B9BF /* Headers */,
+				06B8DC1BD59EBEC3F6F1E7F3E8086402 /* Sources */,
+				F5B862E8ECBD3AE72A4E190715645231 /* Frameworks */,
+				85558FB284D684655AF7482A44541F64 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0BC59EF78169209190AEB532B8A6BA47 /* PBXTargetDependency */,
+			);
+			name = SauceCore_iOS;
+			productName = SauceCore_iOS;
+			productReference = BDE7387252D19159D7B8D6EAB743759B /* SauceCore_iOS */;
+			productType = "com.apple.product-type.framework";
+		};
+		73D34E20E8792A27A1C5C542BCDE4BD6 /* Pods-SauceCore_iOS_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A1E982F05EB67C8F6EEDC23E55B9F1E /* Build configuration list for PBXNativeTarget "Pods-SauceCore_iOS_Example" */;
+			buildPhases = (
+				918E00B0EF2A05720F3359A6EE0D246C /* Headers */,
+				318E9FC85FD9075A5A14889B1884B147 /* Sources */,
+				217CD1BD96FB03413DBE36ACDC650171 /* Frameworks */,
+				B11544FBB5191D5AEB2115D8948DD92E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9445EE7A3D360CB4FD4C8DA1C9B369CD /* PBXTargetDependency */,
+			);
+			name = "Pods-SauceCore_iOS_Example";
+			productName = Pods_SauceCore_iOS_Example;
+			productReference = 4FF89AC8EA893A38795BFE33E02645BC /* Pods-SauceCore_iOS_Example */;
+			productType = "com.apple.product-type.framework";
+		};
+		8618DCE19F6E3324DC7280183AED55C6 /* Pods-SauceCore_iOS_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B3806646C83C457D3B608358029F245 /* Build configuration list for PBXNativeTarget "Pods-SauceCore_iOS_Tests" */;
+			buildPhases = (
+				D5DAEAC4CFBE2244BF32C6465048C5CB /* Headers */,
+				8DCB4000C56EBABC51302D7B90D8CB77 /* Sources */,
+				6225F06EF4ED2843A284D750A12F630D /* Frameworks */,
+				231F5EDACD3F08AC8B91C4B373E41DC1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F29D39F69D15A4C19AB1C5E43E024207 /* PBXTargetDependency */,
+			);
+			name = "Pods-SauceCore_iOS_Tests";
+			productName = Pods_SauceCore_iOS_Tests;
+			productReference = 94732A17E6DFAC74EAF8D16B4350EB85 /* Pods-SauceCore_iOS_Tests */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 12.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 0EA1FF0AFB4C9F7B48CCE008544D3032 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				73D34E20E8792A27A1C5C542BCDE4BD6 /* Pods-SauceCore_iOS_Example */,
+				8618DCE19F6E3324DC7280183AED55C6 /* Pods-SauceCore_iOS_Tests */,
+				5980FF9213045A8277302D08D695609E /* SauceCore_iOS */,
+				4A3FC503553B0CECCA61A90FB2D910B1 /* SauceCore_iOS-assets */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		231F5EDACD3F08AC8B91C4B373E41DC1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72AE59C63EF061470E3C11899F86F4E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CABE87BBB6D4019DDCCC5EF8EA30DA3F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85558FB284D684655AF7482A44541F64 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B63FC9AB2F1DD95FD5B2F90345D6482 /* SauceCore_iOS-assets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B11544FBB5191D5AEB2115D8948DD92E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		06B8DC1BD59EBEC3F6F1E7F3E8086402 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				704CC8A2E34330F2828D6D194D17D660 /* AVPIPKitRenderer.swift in Sources */,
+				56A7697224520EB6CCA77A53DE7570BE /* AVPIPKitUsable.swift in Sources */,
+				39C4BD8EC469180FAD0519492FBD998D /* AVPIPKitUsable+UIKit.swift in Sources */,
+				D20472E20689998F63E0E1F1C61EA381 /* AVPIPKitVideoController.swift in Sources */,
+				705806BEA219311C0EF1AAEAD55CEC37 /* AVPIPKitVideoProvider.swift in Sources */,
+				5636AFC76C4DA9218F52E79C6A8D5D74 /* PIPKit.swift in Sources */,
+				2034A1DDE18C0C782E00F4B502F8F968 /* PIPKitEventDispatcher.swift in Sources */,
+				55C099391C86FDB3EE310168BBF48F5E /* PIPUsable.swift in Sources */,
+				3B7577E56F39364EF30AB8ED74C77C34 /* SauceCore_iOS.swift in Sources */,
+				2DFF4AC6A647D05BD561F3A0B8C17560 /* SauceCore_iOS-dummy.m in Sources */,
+				81A116023BC471B73341372E2DF2CA8A /* UIView+Associated.swift in Sources */,
+				A87ABBAA28E464E39AAED7D518C661E0 /* UIViewController+Associated.swift in Sources */,
+				33B8B5A1EFF6F33D0F76707B7C58313A /* UIWindow+Extension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		318E9FC85FD9075A5A14889B1884B147 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				085D7FE4B0C8FDAB910DBCE4563588DB /* Pods-SauceCore_iOS_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DCB4000C56EBABC51302D7B90D8CB77 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76AAE0D307F8B113C81563C5D5818A15 /* Pods-SauceCore_iOS_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E668505A8C91224FE5DF7B114F4EED6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0BC59EF78169209190AEB532B8A6BA47 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SauceCore_iOS-assets";
+			target = 4A3FC503553B0CECCA61A90FB2D910B1 /* SauceCore_iOS-assets */;
+			targetProxy = 3F6E412374E149A20B110B19ED6DDD35 /* PBXContainerItemProxy */;
+		};
+		9445EE7A3D360CB4FD4C8DA1C9B369CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SauceCore_iOS;
+			target = 5980FF9213045A8277302D08D695609E /* SauceCore_iOS */;
+			targetProxy = B65333D9951936ABBB472D67F1690C73 /* PBXContainerItemProxy */;
+		};
+		F29D39F69D15A4C19AB1C5E43E024207 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-SauceCore_iOS_Example";
+			target = 73D34E20E8792A27A1C5C542BCDE4BD6 /* Pods-SauceCore_iOS_Example */;
+			targetProxy = 83ECE6551D36B6D54EFF3D93A7186724 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		26719F64537BD5DD9BC541F78D4E0F58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BEB7CD8CA67FE39BB8A13D515437934 /* SauceCore_iOS.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SauceCore_iOS";
+				IBSC_MODULE = SauceCore_iOS;
+				INFOPLIST_FILE = "Target Support Files/SauceCore_iOS/ResourceBundle-assets-SauceCore_iOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_NAME = assets;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		80B5E2A39341A5CA3C3A756E6780A6D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3711952A83A6859F499CF3176788FFF /* Pods-SauceCore_iOS_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SauceCore_iOS_Tests/Pods-SauceCore_iOS_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SauceCore_iOS_Tests/Pods-SauceCore_iOS_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		903A0004D3E6651EFD5D2E16214D101B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		934A919C0BD672D687A709ADF78D316B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42AE1F44177ABB1DE578FA298BF0AE20 /* SauceCore_iOS.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SauceCore_iOS/SauceCore_iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SauceCore_iOS/SauceCore_iOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SauceCore_iOS/SauceCore_iOS.modulemap";
+				PRODUCT_MODULE_NAME = SauceCore_iOS;
+				PRODUCT_NAME = SauceCore_iOS;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A0090D290E8328D16EFC3AC234507503 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39994C5E965E6E9A3C84E07B645A3BBF /* Pods-SauceCore_iOS_Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SauceCore_iOS_Example/Pods-SauceCore_iOS_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SauceCore_iOS_Example/Pods-SauceCore_iOS_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		AE59113797102B6DD5B250E4958F3BC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42AE1F44177ABB1DE578FA298BF0AE20 /* SauceCore_iOS.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SauceCore_iOS";
+				IBSC_MODULE = SauceCore_iOS;
+				INFOPLIST_FILE = "Target Support Files/SauceCore_iOS/ResourceBundle-assets-SauceCore_iOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_NAME = assets;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		B4EFE046ACF8F37157F6E322C7FCFC28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		B5CC9702A42CE02B03FE941DF0697D86 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BEB7CD8CA67FE39BB8A13D515437934 /* SauceCore_iOS.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SauceCore_iOS/SauceCore_iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SauceCore_iOS/SauceCore_iOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SauceCore_iOS/SauceCore_iOS.modulemap";
+				PRODUCT_MODULE_NAME = SauceCore_iOS;
+				PRODUCT_NAME = SauceCore_iOS;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C7E00691B3128B28E8CA2058D0052C3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10A5F502B79FFB2FBF1CC76570716EFA /* Pods-SauceCore_iOS_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SauceCore_iOS_Example/Pods-SauceCore_iOS_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SauceCore_iOS_Example/Pods-SauceCore_iOS_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		EEB5278B346879C4A735604BF20017A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 028A84A1DCEBD7719DE9288E1543D2E9 /* Pods-SauceCore_iOS_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SauceCore_iOS_Tests/Pods-SauceCore_iOS_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SauceCore_iOS_Tests/Pods-SauceCore_iOS_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1E72B30A8992AE66EF2E9B5797F0EB99 /* Build configuration list for PBXNativeTarget "SauceCore_iOS-assets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26719F64537BD5DD9BC541F78D4E0F58 /* Debug */,
+				AE59113797102B6DD5B250E4958F3BC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A1E982F05EB67C8F6EEDC23E55B9F1E /* Build configuration list for PBXNativeTarget "Pods-SauceCore_iOS_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7E00691B3128B28E8CA2058D0052C3C /* Debug */,
+				A0090D290E8328D16EFC3AC234507503 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4EFE046ACF8F37157F6E322C7FCFC28 /* Debug */,
+				903A0004D3E6651EFD5D2E16214D101B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B3806646C83C457D3B608358029F245 /* Build configuration list for PBXNativeTarget "Pods-SauceCore_iOS_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEB5278B346879C4A735604BF20017A8 /* Debug */,
+				80B5E2A39341A5CA3C3A756E6780A6D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D371BECDDD81D45667CD97F2D1833A12 /* Build configuration list for PBXNativeTarget "SauceCore_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5CC9702A42CE02B03FE941DF0697D86 /* Debug */,
+				934A919C0BD672D687A709ADF78D316B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
