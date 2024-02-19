@@ -27,9 +27,10 @@
 		7F34EA837F132BB497487E121AEB6A44 /* SauceCore_iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FA402517621A4A181A9237DD9FE246C /* SauceCore_iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		81A116023BC471B73341372E2DF2CA8A /* UIView+Associated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9806A8B0873BEB7505B3AF9383A37B8D /* UIView+Associated.swift */; };
 		A87ABBAA28E464E39AAED7D518C661E0 /* UIViewController+Associated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093907A7B31B78E5CB5616917A2E87E0 /* UIViewController+Associated.swift */; };
-		CABE87BBB6D4019DDCCC5EF8EA30DA3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EF04445FACF4B159D41FB3D2C637AE4 /* Assets.xcassets */; };
 		D20472E20689998F63E0E1F1C61EA381 /* AVPIPKitVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C805C3DCB28032AB253A4DF80529647D /* AVPIPKitVideoController.swift */; };
 		ED3F50DB1C61C60A86B828B5D51577C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		F90EF1F22B831BEA00B065F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EF04445FACF4B159D41FB3D2C637AE4 /* Assets.xcassets */; };
+		F90EF1F62B831C3100B065F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EF04445FACF4B159D41FB3D2C637AE4 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,7 +72,7 @@
 		4DDAB8980837681B86F59A3FE72A3D50 /* SauceCore_iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SauceCore_iOS-dummy.m"; sourceTree = "<group>"; };
 		4FF89AC8EA893A38795BFE33E02645BC /* Pods-SauceCore_iOS_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-SauceCore_iOS_Example"; path = Pods_SauceCore_iOS_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5514F2642527D4D37041C17F44968484 /* SauceCore_iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SauceCore_iOS-prefix.pch"; sourceTree = "<group>"; };
-		60B86201290486BB65226A228E9153FC /* SauceCore_iOS.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = SauceCore_iOS.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		60B86201290486BB65226A228E9153FC /* SauceCore_iOS.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = SauceCore_iOS.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		6761891D26B7773F7C575CB5807276BE /* UIWindow+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extension.swift"; sourceTree = "<group>"; };
 		6DDA2E20AD61E542B0D5F134F060D7C9 /* Pods-SauceCore_iOS_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SauceCore_iOS_Example-frameworks.sh"; sourceTree = "<group>"; };
 		6FA402517621A4A181A9237DD9FE246C /* SauceCore_iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SauceCore_iOS-umbrella.h"; sourceTree = "<group>"; };
@@ -88,7 +89,7 @@
 		98D660756E45B872FF0E3A07EF02AC1B /* AVPIPKitVideoProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AVPIPKitVideoProvider.swift; sourceTree = "<group>"; };
 		9ADDF89882271B62A2BFE0E18A9B6064 /* Pods-SauceCore_iOS_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SauceCore_iOS_Tests-dummy.m"; sourceTree = "<group>"; };
 		9BEB7CD8CA67FE39BB8A13D515437934 /* SauceCore_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SauceCore_iOS.debug.xcconfig; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AE34E94801AE45F805F3EDC3E311EDCE /* AVPIPKitUsable+UIKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "AVPIPKitUsable+UIKit.swift"; sourceTree = "<group>"; };
 		AE7371A67B96ECB34CAB3C81B0A75D32 /* PIPKitEventDispatcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PIPKitEventDispatcher.swift; sourceTree = "<group>"; };
 		B0041D5457FC5DD700DBE4CD964EC283 /* Pods-SauceCore_iOS_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SauceCore_iOS_Example.modulemap"; sourceTree = "<group>"; };
@@ -97,11 +98,11 @@
 		C98D6E03160B4E1F6896EAFC4B6B7ED7 /* Pods-SauceCore_iOS_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SauceCore_iOS_Example-Info.plist"; sourceTree = "<group>"; };
 		CBA9C53150CF6A3EF2236CBA03FB36FE /* Pods-SauceCore_iOS_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SauceCore_iOS_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		D1AF8E25C3D2D72F00BDA67D7F3287F2 /* Pods-SauceCore_iOS_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SauceCore_iOS_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		D1D593C31DCC49DC1556C814111C6DBB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		D1D593C31DCC49DC1556C814111C6DBB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D64A0DAB0E5A04A858FB6CB7B4E015A0 /* PIPUsable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PIPUsable.swift; sourceTree = "<group>"; };
 		D897FA0A44E0802BC35FE87F2C6E2CF9 /* Pods-SauceCore_iOS_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SauceCore_iOS_Tests.modulemap"; sourceTree = "<group>"; };
 		D9B677211751BE80B73FC7F89FD84FD4 /* Pods-SauceCore_iOS_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SauceCore_iOS_Example-dummy.m"; sourceTree = "<group>"; };
-		EDC63F60F417FBBD1017B095B2FE7BFF /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		EDC63F60F417FBBD1017B095B2FE7BFF /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		F3711952A83A6859F499CF3176788FFF /* Pods-SauceCore_iOS_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SauceCore_iOS_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		FB120EF1A7F2CFB6BEF44FA6996AA037 /* SauceCore_iOS.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SauceCore_iOS.swift; path = SauceCore_iOS/Classes/SauceCore_iOS.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,7 +172,6 @@
 				AE7371A67B96ECB34CAB3C81B0A75D32 /* PIPKitEventDispatcher.swift */,
 				D64A0DAB0E5A04A858FB6CB7B4E015A0 /* PIPUsable.swift */,
 			);
-			name = PIPKit;
 			path = PIPKit;
 			sourceTree = "<group>";
 		};
@@ -193,7 +193,6 @@
 				093907A7B31B78E5CB5616917A2E87E0 /* UIViewController+Associated.swift */,
 				6761891D26B7773F7C575CB5807276BE /* UIWindow+Extension.swift */,
 			);
-			name = Extension;
 			path = Extension;
 			sourceTree = "<group>";
 		};
@@ -231,7 +230,6 @@
 				C805C3DCB28032AB253A4DF80529647D /* AVPIPKitVideoController.swift */,
 				98D660756E45B872FF0E3A07EF02AC1B /* AVPIPKitVideoProvider.swift */,
 			);
-			name = AVPIPKit;
 			path = AVPIPKit;
 			sourceTree = "<group>";
 		};
@@ -460,7 +458,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CABE87BBB6D4019DDCCC5EF8EA30DA3F /* Assets.xcassets in Resources */,
+				F90EF1F62B831C3100B065F8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +466,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F90EF1F22B831BEA00B065F8 /* Assets.xcassets in Resources */,
 				7B63FC9AB2F1DD95FD5B2F90345D6482 /* SauceCore_iOS-assets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
