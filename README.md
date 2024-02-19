@@ -1,3 +1,8 @@
+[![CI Status](https://img.shields.io/travis/DevPlayNew/SauceCore_iOS.svg?style=flat)](https://travis-ci.org/DevPlayNew/SauceCore_iOS)
+[![Version](https://img.shields.io/cocoapods/v/SauceCore_iOS.svg?style=flat)](https://cocoapods.org/pods/SauceCore_iOS)
+[![License](https://img.shields.io/cocoapods/l/SauceCore_iOS.svg?style=flat)](https://cocoapods.org/pods/SauceCore_iOS)
+[![Platform](https://img.shields.io/cocoapods/p/SauceCore_iOS.svg?style=flat)](https://cocoapods.org/pods/SauceCore_iOS)
+
 # SauceCore_iOS
 
 SauceCore_iOS는 애플리케이션 내에서 웹 콘텐츠의 통합 및 관리를 간소화하도록 설계된 강력한 라이브러리입니다. 웹 콘텐츠 관리, 스크립트 메시지 처리 및 사용자의 멀티태스킹 기능을 향상시키는 Picture-in-Picture (PIP) 기능을 쉽게 사용할 수 있습니다.
