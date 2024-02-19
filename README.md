@@ -33,7 +33,7 @@ pod 'SauceCore_iOS'
 
 Xcode에서 프로젝트를 열고 `File` > `Swift Packages` > `Add Package Dependency...`를 선택합니다. 나타나는 대화 상자에 SauceCore_iOS Git 저장소 URL을 입력합니다.
 
-저장소 URL: `https://github.com/MobidooMD/SauceCore.git`
+저장소 URL: `https://github.com/MobidooMD/SauceCore_iOS.git`
 
 필요한 버전 설정을 완료하고 패키지를 프로젝트에 추가합니다.
 
