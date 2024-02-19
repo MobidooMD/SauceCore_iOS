@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/Users/keaton/Documents/Dev/SauceCore_iOS/.build/arm64-apple-macosx/debug/SauceCore_iOSTests.build/master.swiftdeps"
+  },
+  "/Users/keaton/Documents/Dev/SauceCore_iOS/Tests/SauceCore_iOSTests/SauceCore_iOSTests.swift": {
+    "dependencies": "/Users/keaton/Documents/Dev/SauceCore_iOS/.build/arm64-apple-macosx/debug/SauceCore_iOSTests.build/SauceCore_iOSTests.d",
+    "object": "/Users/keaton/Documents/Dev/SauceCore_iOS/.build/arm64-apple-macosx/debug/SauceCore_iOSTests.build/SauceCore_iOSTests.swift.o",
+    "swiftmodule": "/Users/keaton/Documents/Dev/SauceCore_iOS/.build/arm64-apple-macosx/debug/SauceCore_iOSTests.build/SauceCore_iOSTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/keaton/Documents/Dev/SauceCore_iOS/.build/arm64-apple-macosx/debug/SauceCore_iOSTests.build/SauceCore_iOSTests.swiftdeps"
+  }
+}

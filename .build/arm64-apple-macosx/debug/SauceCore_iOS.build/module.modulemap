@@ -1,0 +1,4 @@
+module SauceCore_iOS {
+    header "/Users/keaton/Documents/Dev/SauceCore_iOS/.build/arm64-apple-macosx/debug/SauceCore_iOS.build/SauceCore_iOS-Swift.h"
+    requires objc
+}
