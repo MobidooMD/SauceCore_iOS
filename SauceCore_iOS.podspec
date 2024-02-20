@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SauceCore_iOS'
-  s.version          = '0.1.3'
+  s.version          = '0.1.4'
   s.summary          = 'Sauce SDK'
 
 # This description is used to generate tags and improve search results.
@@ -24,7 +24,7 @@ TODO: Add long description of the pod here.
   s.homepage         = 'https://github.com/MobidooMD/SauceCore_iOS.git'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'DevPlayNew' => 'keaton@mobidoo.co.kr' }
+  s.author           = { 'keaton' => 'keaton@mobidoo.co.kr' }
   s.source           = { :git => 'https://github.com/MobidooMD/SauceCore_iOS.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
