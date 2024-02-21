@@ -220,6 +220,7 @@
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = PQFD9V79PC;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -514,6 +515,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 19CD701BDC9A765FA14CFDA7 /* Pods-SauceCore_iOS_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = PQFD9V79PC;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -537,6 +539,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F33D6001A195B02F2526955F /* Pods-SauceCore_iOS_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = PQFD9V79PC;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",

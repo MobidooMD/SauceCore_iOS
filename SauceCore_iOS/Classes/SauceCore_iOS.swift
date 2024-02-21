@@ -32,7 +32,7 @@ public enum MessageHandlerName: String {
     @objc optional func webViewManagerDidStopPictureInPicture(_ manager: WebViewManager)
 }
 
-open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigationDelegate {
+open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigationDelegate, WKUIDelegate {
     public var webView: WKWebView!
     var contentController = WKUserContentController()
     private var leftButton: UIButton!
@@ -45,6 +45,7 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
     }
     
     public var pipSize: CGSize = CGSize(width: 100, height: 200)
+    public var pipMode: Bool = false
     
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,13 +56,18 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
     
     public func configureWebView() {
         let configuration = WKWebViewConfiguration()
-        configuration.websiteDataStore = WKWebsiteDataStore.nonPersistent()
+        configuration.websiteDataStore = WKWebsiteDataStore.default()
         configuration.allowsInlineMediaPlayback = true
         configuration.userContentController = contentController
         configuration.allowsPictureInPictureMediaPlayback = true
-        
+        if #available(iOS 14.0, *) {
+            configuration.defaultWebpagePreferences.allowsContentJavaScript = true
+        } else {
+            configuration.preferences.javaScriptEnabled = true
+        }
         webView = WKWebView(frame: .zero, configuration: configuration)
         webView.navigationDelegate = self
+        webView.uiDelegate = self
         view.addSubview(webView)
     }
     
@@ -97,7 +103,7 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
         let closeImage = UIImage(named: "CloseButton", in: bundle, compatibleWith: nil)
         let pipImage = UIImage(named: "PIPButton", in: bundle, compatibleWith: nil)
         
-       
+        
         
         // Set button images (images must be added to the project)
         leftButton.setImage(closeImage, for: .normal)
@@ -143,16 +149,46 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
         }
     }
     
-    public func startPictureInPicture() {
-        PIPKit.startPIPMode()
+    private func videoPIP() {
+        let script = "if (document.querySelector('video')) { document.querySelector('video').webkitSetPresentationMode('picture-in-picture'); }"
+        webView.evaluateJavaScript(script, completionHandler: nil)
     }
     
+    private func disableVideoPIP() {
+        let script = """
+        if (document.querySelector('video') && document.pictureInPictureElement) {
+            document.exitPictureInPicture();
+        }
+        """
+        webView.evaluateJavaScript(script) { _, error in
+            if let error = error {
+                print("PiP 모드 비활성화 중 오류 발생: \(error)")
+            }
+        }
+    }
+    
+    
+    public func startPictureInPicture() {
+        if pipMode {
+            PIPKit.startPIPMode()
+        } else {
+            videoPIP()
+            webView.isHidden = true
+            webView.isUserInteractionEnabled = false
+        }
+    }
     public func stopPictureInPicture() {
-        // Logic to stop PIP
-        PIPKit.dismiss(animated: true)
+        if pipMode {
+            PIPKit.dismiss(animated: true)
+        } else {
+            disableVideoPIP()
+            webView.isHidden = true
+            webView.isUserInteractionEnabled = false
+        }
     }
     
     public func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        print("message!!!!")
         switch message.name {
         case MessageHandlerName.customCoupon.rawValue:
             delegate?.webViewManager?(self, didReceiveCustomCouponMessage: message)
