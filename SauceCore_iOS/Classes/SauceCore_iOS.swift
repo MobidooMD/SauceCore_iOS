@@ -58,6 +58,10 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
         let configuration = WKWebViewConfiguration()
         configuration.websiteDataStore = WKWebsiteDataStore.default()
         configuration.allowsInlineMediaPlayback = true
+
+        if #available(iOS 10.0, *) {
+            configuration.mediaTypesRequiringUserActionForPlayback = []
+        }
         configuration.userContentController = contentController
         configuration.allowsPictureInPictureMediaPlayback = true
         if #available(iOS 14.0, *) {
@@ -115,8 +119,8 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
         leftButton.isHidden = true
         rightButton.isHidden = true
         
-        view.addSubview(leftButton)
-        view.addSubview(rightButton)
+        webView.addSubview(leftButton)
+        webView.addSubview(rightButton)
         
         leftButton.translatesAutoresizingMaskIntoConstraints = false
         rightButton.translatesAutoresizingMaskIntoConstraints = false
@@ -150,7 +154,11 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
     }
     
     private func videoPIP() {
-        let script = "if (document.querySelector('video')) { document.querySelector('video').webkitSetPresentationMode('picture-in-picture'); }"
+        let script = """
+            if (document.querySelector('video') && !document.querySelector('video').paused) {
+                document.querySelector('video').webkitSetPresentationMode('picture-in-picture');
+            }
+            """
         webView.evaluateJavaScript(script, completionHandler: nil)
     }
     
@@ -173,8 +181,8 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
             PIPKit.startPIPMode()
         } else {
             videoPIP()
-            webView.isHidden = true
-            webView.isUserInteractionEnabled = false
+//            webView.isHidden = true
+//            webView.isUserInteractionEnabled = false
         }
     }
     public func stopPictureInPicture() {
@@ -182,8 +190,8 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
             PIPKit.dismiss(animated: true)
         } else {
             disableVideoPIP()
-            webView.isHidden = true
-            webView.isUserInteractionEnabled = false
+//            webView.isHidden = true
+//            webView.isUserInteractionEnabled = false
         }
     }
     
