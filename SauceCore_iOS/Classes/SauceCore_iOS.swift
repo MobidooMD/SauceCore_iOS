@@ -181,8 +181,8 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
             PIPKit.startPIPMode()
         } else {
             videoPIP()
-//            webView.isHidden = true
-//            webView.isUserInteractionEnabled = false
+            webView.isHidden = true
+            webView.isUserInteractionEnabled = false
         }
     }
     public func stopPictureInPicture() {
@@ -190,8 +190,8 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
             PIPKit.dismiss(animated: true)
         } else {
             disableVideoPIP()
-//            webView.isHidden = true
-//            webView.isUserInteractionEnabled = false
+            webView.isHidden = true
+            webView.isUserInteractionEnabled = true
         }
     }
     
