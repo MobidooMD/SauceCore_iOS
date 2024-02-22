@@ -1,6 +1,7 @@
 import Foundation
 import UIKit
 import WebKit
+import AVKit
 
 public enum MessageHandlerName: String {
     case customCoupon = "sauceflexSetCustomCoupon"
@@ -14,6 +15,7 @@ public enum MessageHandlerName: String {
     case pictureInPicture = "sauceflexPictureInPicture"
     case tokenError = "sauceflexTokenError"
     case pictureInPictureOn = "sauceflexPictureInPictureOn"
+    case videoURL = "videoURL"
 }
 
 @objc public protocol WebViewManagerDelegate: AnyObject {
@@ -46,6 +48,10 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
     
     public var pipSize: CGSize = CGSize(width: 100, height: 200)
     public var pipMode: Bool = false
+    
+    private let playerLayer = AVPlayerLayer()
+    private var player = AVPlayer()
+    private var pipController: AVPictureInPictureController?
     
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -188,7 +194,6 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
     }
     
     public func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        print("message!!!!")
         switch message.name {
         case MessageHandlerName.customCoupon.rawValue:
             delegate?.webViewManager?(self, didReceiveCustomCouponMessage: message)
@@ -210,9 +215,10 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
             delegate?.webViewManager?(self, didReceiveOnShareMessage: message)
         case MessageHandlerName.pictureInPicture.rawValue:
             delegate?.webViewManager?(self, didReceivePictureInPictureMessage: message)
-            startPictureInPicture()
-            leftButton.isHidden = false
-            rightButton.isHidden = false
+            //            startPictureInPicture()
+            //            leftButton.isHidden = false
+            //            rightButton.isHidden = false
+            fetchVideoURL()
         case MessageHandlerName.tokenError.rawValue:
             delegate?.webViewManager?(self, didReceiveTokenErrorMessage: message)
         case MessageHandlerName.pictureInPictureOn.rawValue:
@@ -220,14 +226,53 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
         default:
             break
         }
+        
+        if message.name == "videoURL", let videoURLString = message.body as? String, let videoURL = URL(string: videoURLString) {
+            // AVPlayer를 사용하여 비디오 URL로 PIP 시작
+            print(message.name)
+            startPictureInPictureWithAVPlayer(videoURL: videoURL)
+        }
     }
     
     public func webViewManager(_ manager: WebViewManager, didFailWithError error: Error) {
         // Error handling logic
         print("Error occurred: \(error.localizedDescription)")
     }
+    
+    private func startPictureInPictureWithAVPlayer(videoURL: URL) {
+        let playerItem = AVPlayerItem(url: videoURL)
+        player = AVPlayer(playerItem: playerItem)
+        if AVPictureInPictureController.isPictureInPictureSupported() {
+            print("keaton111")
+            pipController = AVPictureInPictureController(playerLayer: AVPlayerLayer(player: player))
+            pipController?.delegate = self
+            pipController?.startPictureInPicture()
+        }
+    }
+    
+    // 비디오 URL을 찾는 JavaScript 코드 실행
+    func fetchVideoURL() {
+        // 여기서 "yourVideoContainer video" 대신 실제 비디오 요소 선택자를 사용하세요.
+        // 예를 들어, document.querySelector('video').src
+        let script = """
+            var videoSrc = document.querySelector('video') ? document.querySelector('video').src : '';
+            webkit.messageHandlers.videoURL.postMessage(videoSrc);
+            """
+        webView.evaluateJavaScript(script, completionHandler: nil)
+    }
 }
 
 extension WebViewManager: PIPUsable {
     public var initialState: PIPState { return .full }
+}
+
+extension WebViewManager: AVPictureInPictureControllerDelegate {
+    // Implement delegate methods as needed, for example:
+    public func pictureInPictureControllerDidStartPictureInPicture(_ pictureInPictureController: AVPictureInPictureController) {
+        print("PiP started")
+    }
+    
+    public func pictureInPictureControllerDidStopPictureInPicture(_ pictureInPictureController: AVPictureInPictureController) {
+        print("PiP stopped")
+    }
 }

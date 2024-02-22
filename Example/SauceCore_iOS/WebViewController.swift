@@ -16,8 +16,9 @@ class WebViewController: WebViewManager {
         super.viewDidLoad()
         self.delegate = self
         // messageHandlerNames 설정
-        self.messageHandlerNames = [.customCoupon, .issueCoupon, .enter, .moveExit, .moveLogin, .moveProduct, .moveBanner, .onShare, .pictureInPicture, .tokenError, .pictureInPictureOn]
+        self.messageHandlerNames = [.customCoupon, .issueCoupon, .enter, .moveExit, .moveLogin, .moveProduct, .moveBanner, .onShare, .pictureInPicture, .tokenError, .pictureInPictureOn, .videoURL]
         // pip 사이즈 설정
+        self.pipMode = false
         self.pipSize = CGSize(width: 100, height: 150)
         // 초기 웹 페이지 로드
         loadURL("https://butterand.cafe24.com/")
