@@ -46,6 +46,7 @@ class ViewController: UIViewController {
     }
 
     @objc private func sampleButtonTapped() {
+        print("katon111")
         let webVC = WebViewController()
         PIPKit.show(with: webVC)
     }

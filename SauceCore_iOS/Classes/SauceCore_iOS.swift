@@ -60,6 +60,11 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
         setupButtons()
     }
     
+    open override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        playerLayer.frame = webView.bounds
+      }
+    
     public func configureWebView() {
         let configuration = WKWebViewConfiguration()
         configuration.websiteDataStore = WKWebsiteDataStore.default()
@@ -188,23 +193,24 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
             PIPKit.dismiss(animated: true)
         } else {
             disableVideoPIP()
-            webView.isHidden = true
-            webView.isUserInteractionEnabled = false
+            webView.isHidden = false
+            webView.isUserInteractionEnabled = true
         }
     }
     
     public func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        print(message.name)
         switch message.name {
         case MessageHandlerName.customCoupon.rawValue:
             delegate?.webViewManager?(self, didReceiveCustomCouponMessage: message)
         case MessageHandlerName.issueCoupon.rawValue:
             delegate?.webViewManager?(self, didReceiveIssueCouponMessage: message)
         case MessageHandlerName.enter.rawValue:
-            
             delegate?.webViewManager?(self, didReceiveEnterMessage: message)
+            fetchVideoURL()
         case MessageHandlerName.moveExit.rawValue:
             delegate?.webViewManager?(self, didReceiveMoveExitMessage: message)
-            stopPictureInPicture()
+          
         case MessageHandlerName.moveLogin.rawValue:
             delegate?.webViewManager?(self, didReceiveMoveLoginMessage: message)
         case MessageHandlerName.moveProduct.rawValue:
@@ -218,7 +224,13 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
             //            startPictureInPicture()
             //            leftButton.isHidden = false
             //            rightButton.isHidden = false
-            fetchVideoURL()
+            
+            webView.isHidden = true
+            webView.isUserInteractionEnabled = false
+          
+    
+            player.play()
+            pipController?.startPictureInPicture()
         case MessageHandlerName.tokenError.rawValue:
             delegate?.webViewManager?(self, didReceiveTokenErrorMessage: message)
         case MessageHandlerName.pictureInPictureOn.rawValue:
@@ -227,9 +239,12 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
             break
         }
         
-        if message.name == "videoURL", let videoURLString = message.body as? String, let videoURL = URL(string: videoURLString) {
+        if message.name == "videoURL", let videoURLString = message.body as? String, let videoURL = URL(string: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4") {
             // AVPlayer를 사용하여 비디오 URL로 PIP 시작
+            
+            let url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
             print(message.name)
+            print(message.body)
             startPictureInPictureWithAVPlayer(videoURL: videoURL)
         }
     }
@@ -240,20 +255,22 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
     }
     
     private func startPictureInPictureWithAVPlayer(videoURL: URL) {
-        let playerItem = AVPlayerItem(url: videoURL)
-        player = AVPlayer(playerItem: playerItem)
-        if AVPictureInPictureController.isPictureInPictureSupported() {
-            print("keaton111")
-            pipController = AVPictureInPictureController(playerLayer: AVPlayerLayer(player: player))
+           let asset = AVPlayerItem(url: videoURL)
+            player.replaceCurrentItem(with: asset)
+            playerLayer.player = player
+            playerLayer.videoGravity = .resizeAspect
+        webView.layer.addSublayer(playerLayer)
+            
+            
+            guard AVPictureInPictureController.isPictureInPictureSupported() else { return }
+            pipController = AVPictureInPictureController(playerLayer: playerLayer)
             pipController?.delegate = self
-            pipController?.startPictureInPicture()
-        }
+       // webView.isHidden = true
+            //pipController?.startPictureInPicture()
     }
     
     // 비디오 URL을 찾는 JavaScript 코드 실행
     func fetchVideoURL() {
-        // 여기서 "yourVideoContainer video" 대신 실제 비디오 요소 선택자를 사용하세요.
-        // 예를 들어, document.querySelector('video').src
         let script = """
             var videoSrc = document.querySelector('video') ? document.querySelector('video').src : '';
             webkit.messageHandlers.videoURL.postMessage(videoSrc);
@@ -274,5 +291,11 @@ extension WebViewManager: AVPictureInPictureControllerDelegate {
     
     public func pictureInPictureControllerDidStopPictureInPicture(_ pictureInPictureController: AVPictureInPictureController) {
         print("PiP stopped")
+    }
+}
+
+extension WebViewManager {
+    public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+       
     }
 }
