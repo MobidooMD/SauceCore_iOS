@@ -14,6 +14,7 @@ public enum MessageHandlerName: String {
     case pictureInPicture = "sauceflexPictureInPicture"
     case tokenError = "sauceflexTokenError"
     case pictureInPictureOn = "sauceflexPictureInPictureOn"
+    case sauceflexOSPictureInPicture = "sauceflexOSPictureInPicture"
 }
 
 @objc public protocol WebViewManagerDelegate: AnyObject {
@@ -28,6 +29,7 @@ public enum MessageHandlerName: String {
     @objc optional func webViewManager(_ manager: WebViewManager, didReceivePictureInPictureMessage message: WKScriptMessage)
     @objc optional func webViewManager(_ manager: WebViewManager, didReceiveTokenErrorMessage message: WKScriptMessage)
     @objc optional func webViewManager(_ manager: WebViewManager, didReceivePictureInPictureOnMessage message: WKScriptMessage)
+    @objc optional func webViewManager(_ manager: WebViewManager, didReceiveSauceflexOSPictureinPictureMessage message: WKScriptMessage)
     @objc optional func webViewManagerDidStartPictureInPicture(_ manager: WebViewManager)
     @objc optional func webViewManagerDidStopPictureInPicture(_ manager: WebViewManager)
 }
@@ -46,6 +48,9 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
     
     public var pipSize: CGSize = CGSize(width: 100, height: 200)
     public var pipMode: Bool = false
+    
+    var webViewWidthConstraint: NSLayoutConstraint?
+    var webViewHeightConstraint: NSLayoutConstraint?
     
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -153,6 +158,21 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
         }
     }
     
+    open override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.beginAppearanceTransition(false, animated: true)
+        // PiP 모드를 종료하는 스크립트 실행
+        let script = "if (document.querySelector('video').webkitPresentationMode === 'picture-in-picture') { document.querySelector('video').webkitSetPresentationMode('inline'); }"
+        webView.evaluateJavaScript(script) { result, error in
+            if let error = error {
+                print("PiP 모드 종료 스크립트 실행 오류: \(error)")
+            }
+        }
+        self.endAppearanceTransition()
+    }
+    
+    
+    
     private func videoPIP() {
         let script = """
             if (document.querySelector('video') && !document.querySelector('video').paused) {
@@ -163,51 +183,44 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
     }
     
     private func disableVideoPIP() {
-        let script = """
-        if (document.querySelector('video') && document.pictureInPictureElement) {
-            document.exitPictureInPicture();
-        }
-        """
-        webView.evaluateJavaScript(script) { _, error in
-            if let error = error {
-                print("PiP 모드 비활성화 중 오류 발생: \(error)")
+        let name = "window.dispatchEvent(sauceFlexPIP(false));"
+        webView.evaluateJavaScript(name) { (Result, Error) in
+            if let error = Error {
+                print("evaluateJavaScript Error : \(error)")
             }
         }
     }
-    
     
     public func startPictureInPicture() {
         if pipMode {
             PIPKit.startPIPMode()
         } else {
-            videoPIP()
-            webView.isHidden = true
-            webView.isUserInteractionEnabled = false
+            self.view.isHidden = true
+            pipSize = CGSize(width: 0, height: 0)
+            PIPKit.startPIPMode()
+            self.videoPIP()
         }
     }
     public func stopPictureInPicture() {
         if pipMode {
-            PIPKit.dismiss(animated: true)
+            PIPKit.stopPIPMode()
         } else {
+            self.view.isHidden = false
+            PIPKit.stopPIPMode()
             disableVideoPIP()
-            webView.isHidden = true
-            webView.isUserInteractionEnabled = true
         }
     }
     
     public func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        print("message!!!!")
         switch message.name {
         case MessageHandlerName.customCoupon.rawValue:
             delegate?.webViewManager?(self, didReceiveCustomCouponMessage: message)
         case MessageHandlerName.issueCoupon.rawValue:
             delegate?.webViewManager?(self, didReceiveIssueCouponMessage: message)
         case MessageHandlerName.enter.rawValue:
-            
             delegate?.webViewManager?(self, didReceiveEnterMessage: message)
         case MessageHandlerName.moveExit.rawValue:
             delegate?.webViewManager?(self, didReceiveMoveExitMessage: message)
-            stopPictureInPicture()
         case MessageHandlerName.moveLogin.rawValue:
             delegate?.webViewManager?(self, didReceiveMoveLoginMessage: message)
         case MessageHandlerName.moveProduct.rawValue:
@@ -219,12 +232,18 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
         case MessageHandlerName.pictureInPicture.rawValue:
             delegate?.webViewManager?(self, didReceivePictureInPictureMessage: message)
             startPictureInPicture()
-            leftButton.isHidden = false
-            rightButton.isHidden = false
         case MessageHandlerName.tokenError.rawValue:
             delegate?.webViewManager?(self, didReceiveTokenErrorMessage: message)
         case MessageHandlerName.pictureInPictureOn.rawValue:
             delegate?.webViewManager?(self, didReceivePictureInPictureOnMessage: message)
+        case MessageHandlerName.sauceflexOSPictureInPicture.rawValue:
+            if let pipMessage = message.body as? String {
+                if pipMessage == "true" {
+                } else {
+                    stopPictureInPicture()
+                }
+            }
+            delegate?.webViewManager?(self, didReceiveSauceflexOSPictureinPictureMessage: message)
         default:
             break
         }

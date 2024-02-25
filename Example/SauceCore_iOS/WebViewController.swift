@@ -17,12 +17,12 @@ class WebViewController: WebViewManager {
         NotificationCenter.default.addObserver(self, selector: #selector(handleAppDidEnterBackground), name: NSNotification.Name("AppDidEnterBackground"), object: nil)
         self.delegate = self
         // messageHandlerNames 설정
-        self.messageHandlerNames = [.customCoupon, .issueCoupon, .enter, .moveExit, .moveLogin, .moveProduct, .moveBanner, .onShare, .pictureInPicture, .tokenError, .pictureInPictureOn]
+        self.messageHandlerNames = [.customCoupon, .issueCoupon, .enter, .moveExit, .moveLogin, .moveProduct, .moveBanner, .onShare, .pictureInPicture, .tokenError, .pictureInPictureOn, .sauceflexOSPictureInPicture]
         // pip 사이즈 설정
         self.pipSize = CGSize(width: 100, height: 150)
         self.pipMode = false
         // 초기 웹 페이지 로드
-        loadURL("https://butterand.cafe24.com/")
+        loadURL("https://refactor.player.sauceflex.com/broadcast/lkuiux-a5acf6ee5d024d10b41b6391575b2cd0?")
     }
     
     @objc private func handleAppDidEnterBackground() {
