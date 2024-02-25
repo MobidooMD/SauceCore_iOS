@@ -11,6 +11,7 @@ public protocol PIPUsable {
     var pipCorner: PIPCorner? { get }
     func didChangedState(_ state: PIPState)
     func didChangePosition(_ position: PIPPosition)
+    func cleanupForDismiss()
 }
 
 public extension PIPUsable {
@@ -29,6 +30,7 @@ public extension PIPUsable {
     }
     func didChangedState(_ state: PIPState) {}
     func didChangePosition(_ position: PIPPosition) {}
+    func cleanupForDismiss() {}
 }
 
 public extension PIPUsable where Self: UIViewController {

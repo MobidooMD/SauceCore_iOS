@@ -63,7 +63,7 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
         let configuration = WKWebViewConfiguration()
         configuration.websiteDataStore = WKWebsiteDataStore.default()
         configuration.allowsInlineMediaPlayback = true
-
+        
         if #available(iOS 10.0, *) {
             configuration.mediaTypesRequiringUserActionForPlayback = []
         }
@@ -158,9 +158,11 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
         }
     }
     
-    open override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.beginAppearanceTransition(false, animated: true)
+    public func cleanupForDismiss() {
+        for name in messageHandlerNames {
+            contentController.removeScriptMessageHandler(forName: name.rawValue)
+        }
+        
         // PiP 모드를 종료하는 스크립트 실행
         let script = "if (document.querySelector('video').webkitPresentationMode === 'picture-in-picture') { document.querySelector('video').webkitSetPresentationMode('inline'); }"
         webView.evaluateJavaScript(script) { result, error in
@@ -168,7 +170,6 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
                 print("PiP 모드 종료 스크립트 실행 오류: \(error)")
             }
         }
-        self.endAppearanceTransition()
     }
     
     

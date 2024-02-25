@@ -59,7 +59,7 @@ public final class PIPKit {
     static public var visibleViewController: PIPKitViewController? { return rootViewController }
     
     static internal var state: _PIPState = .none
-    static private var rootViewController: PIPKitViewController?
+    static var rootViewController: PIPKitViewController?
     static private var pipWindow: UIWindow?
 
     public class func show(with viewController: PIPKitViewController, completion: (() -> Void)? = nil) {
@@ -91,9 +91,9 @@ public final class PIPKit {
     }
     
     public class func dismiss(animated: Bool, completion: (() -> Void)? = nil) {
+        rootViewController?.cleanupForDismiss()
         state = .exit
         rootViewController?.pipDismiss(animated: animated, completion: {
-            rootViewController?.viewWillDisappear(true)
             PIPKit.reset()
             completion?()
         })
