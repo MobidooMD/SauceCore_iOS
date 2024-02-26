@@ -49,7 +49,6 @@ public extension PIPUsable where Self: UIViewController {
     func stopPIPMode() {
         PIPKit.stopPIPMode()
     }
-    
 }
 
 internal extension PIPUsable where Self: UIViewController {

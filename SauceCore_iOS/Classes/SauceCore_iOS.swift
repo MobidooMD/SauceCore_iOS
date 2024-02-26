@@ -197,18 +197,44 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
             PIPKit.startPIPMode()
         } else {
             self.view.isHidden = true
+            self.view.isUserInteractionEnabled = false
             pipSize = CGSize(width: 0, height: 0)
             PIPKit.startPIPMode()
             self.videoPIP()
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                let screenSize = UIScreen.main.bounds.size
+                PIPKit.rootViewController?.view.frame = CGRect(x: 0, y: 0, width: 1, height: 1)
+                PIPKit.rootViewController?.view.isHidden = true
+            }
         }
     }
     public func stopPictureInPicture() {
         if pipMode {
             PIPKit.stopPIPMode()
         } else {
+            self.disableVideoPIP()
+            let screenSize = UIScreen.main.bounds
+            PIPKit.rootViewController?.view.frame = screenSize
+            PIPKit.state = .full
             self.view.isHidden = false
-            PIPKit.stopPIPMode()
-            disableVideoPIP()
+            self.view.isUserInteractionEnabled = true
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                // 1초 후 실행될 부분
+                // PiP 영상 재생 스크립트 실행
+                let script = """
+        if (document.querySelector('video')) {
+            document.querySelector('video').play();
+        }
+        """
+                self.webView.evaluateJavaScript(script) { result, error in
+                    if let error = error {
+                        print("JavaScript 실행 오류: \(error)")
+                    }
+                }
+                
+            }
         }
     }
     
