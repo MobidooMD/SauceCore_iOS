@@ -54,9 +54,36 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
     
     open override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleAppDidEnterBackground), name: NSNotification.Name("AppDidEnterBackground"), object: nil)
+        
         configureWebView()
         setupWebViewLayout()
         setupButtons()
+    }
+    
+    @objc private func handleAppDidEnterBackground() {
+        PIPKit.stopPIPMode()
+        self.view.isHidden = false
+        self.view.isUserInteractionEnabled = false
+     
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+          // 1초 후 실행될 부분
+            // PiP 영상 재생 스크립트 실행
+            
+            
+            let script = """
+    if (document.pictureInPictureElement) {
+        document.pictureInPictureElement.play();
+    }
+    """
+            self.webView.evaluateJavaScript(script) { result, error in
+                if let error = error {
+                    print("JavaScript 실행 오류: \(error)")
+                }
+            }
+        }
+     
     }
     
     public func configureWebView() {
@@ -172,8 +199,6 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
         }
     }
     
-    
-    
     private func videoPIP() {
         let script = """
             if (document.querySelector('video') && !document.querySelector('video').paused) {
@@ -201,26 +226,18 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
             pipSize = CGSize(width: 0, height: 0)
             PIPKit.startPIPMode()
             self.videoPIP()
-            
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-                let screenSize = UIScreen.main.bounds.size
-                PIPKit.rootViewController?.view.frame = CGRect(x: 0, y: 0, width: 1, height: 1)
-                PIPKit.rootViewController?.view.isHidden = true
-            }
         }
     }
     public func stopPictureInPicture() {
         if pipMode {
             PIPKit.stopPIPMode()
         } else {
-            self.disableVideoPIP()
-            let screenSize = UIScreen.main.bounds
-            PIPKit.rootViewController?.view.frame = screenSize
-            PIPKit.state = .full
             self.view.isHidden = false
             self.view.isUserInteractionEnabled = true
-            
+            PIPKit.stopPIPMode()
+            self.disableVideoPIP()
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+               
                 // 1초 후 실행될 부분
                 // PiP 영상 재생 스크립트 실행
                 let script = """
@@ -266,7 +283,9 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
         case MessageHandlerName.sauceflexOSPictureInPicture.rawValue:
             if let pipMessage = message.body as? String {
                 if pipMessage == "true" {
+                    print("keaton pip mini on")
                 } else {
+                    print("keaton pip full on")
                     stopPictureInPicture()
                 }
             }
