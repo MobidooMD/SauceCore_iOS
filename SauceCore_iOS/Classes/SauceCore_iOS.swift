@@ -65,10 +65,10 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
         PIPKit.stopPIPMode()
         self.view.isHidden = false
         self.view.isUserInteractionEnabled = false
-     
+        
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-          // 1초 후 실행될 부분
+            // 1초 후 실행될 부분
             // PiP 영상 재생 스크립트 실행
             
             
@@ -83,7 +83,7 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
                 }
             }
         }
-     
+        
     }
     
     public func configureWebView() {
@@ -219,6 +219,8 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
     
     public func startPictureInPicture() {
         if pipMode {
+            rightButton.isHidden = false
+            leftButton.isHidden = false
             PIPKit.startPIPMode()
         } else {
             self.view.isHidden = true
@@ -230,6 +232,8 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
     }
     public func stopPictureInPicture() {
         if pipMode {
+            rightButton.isHidden = true
+            leftButton.isHidden = true
             PIPKit.stopPIPMode()
         } else {
             self.view.isHidden = false
@@ -237,9 +241,6 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
             PIPKit.stopPIPMode()
             self.disableVideoPIP()
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-               
-                // 1초 후 실행될 부분
-                // PiP 영상 재생 스크립트 실행
                 let script = """
         if (document.querySelector('video')) {
             document.querySelector('video').play();
@@ -256,6 +257,9 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
     }
     
     public func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        print("keaton111")
+        print(message.name
+        )
         switch message.name {
         case MessageHandlerName.customCoupon.rawValue:
             delegate?.webViewManager?(self, didReceiveCustomCouponMessage: message)
@@ -264,6 +268,7 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
         case MessageHandlerName.enter.rawValue:
             delegate?.webViewManager?(self, didReceiveEnterMessage: message)
         case MessageHandlerName.moveExit.rawValue:
+            PIPKit.dismiss(animated: true)
             delegate?.webViewManager?(self, didReceiveMoveExitMessage: message)
         case MessageHandlerName.moveLogin.rawValue:
             delegate?.webViewManager?(self, didReceiveMoveLoginMessage: message)
@@ -283,9 +288,7 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
         case MessageHandlerName.sauceflexOSPictureInPicture.rawValue:
             if let pipMessage = message.body as? String {
                 if pipMessage == "true" {
-                    print("keaton pip mini on")
                 } else {
-                    print("keaton pip full on")
                     stopPictureInPicture()
                 }
             }

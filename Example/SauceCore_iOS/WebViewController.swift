@@ -11,18 +11,15 @@ import WebKit
 import SauceCore_iOS
 
 class WebViewController: WebViewManager {
-    
+    var url: String?
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.delegate = self
-        // messageHandlerNames 설정
-        self.messageHandlerNames = [.customCoupon, .issueCoupon, .enter, .moveExit, .moveLogin, .moveProduct, .moveBanner, .onShare, .pictureInPicture, .tokenError, .pictureInPictureOn, .sauceflexOSPictureInPicture]
-        // pip 사이즈 설정
         self.pipSize = CGSize(width: 100, height: 150)
-        self.pipMode = false
         // 초기 웹 페이지 로드
-        loadURL("https://stage.player.sauceflex.com/broadcast/lknmemberQA-4b7fcb53ef9847e1ba7c23193dea67fe?")
+        if let url = url {
+            self.loadURL(url)
+        }
     }
     
 //    // 필요에 따라 WebViewManager에서 정의한 메서드를 오버라이드하여 커스터마이즈할 수 있습니다.
