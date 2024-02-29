@@ -138,10 +138,8 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
               let bundle = Bundle(url: bundleURL) else {
             return
         }
-        let closeImage = UIImage(named: "CloseButton", in: bundle, compatibleWith: nil)
-        let pipImage = UIImage(named: "PIPButton", in: bundle, compatibleWith: nil)
-        
-        
+        let closeImage = UIImage(named: "CloseButton", in: .module, compatibleWith: nil)
+        let pipImage = UIImage(named: "PIPButton", in: .module, compatibleWith: nil)
         
         // Set button images (images must be added to the project)
         leftButton.setImage(closeImage, for: .normal)
