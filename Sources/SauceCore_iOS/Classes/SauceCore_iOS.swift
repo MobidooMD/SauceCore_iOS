@@ -14,6 +14,7 @@ public enum MessageHandlerName: String {
     case pictureInPicture = "sauceflexPictureInPicture"
     case tokenError = "sauceflexTokenError"
     case pictureInPictureOn = "sauceflexPictureInPictureOn"
+    case sauceflexOSPictureInPicture = "sauceflexOSPictureInPicture"
 }
 
 @objc public protocol WebViewManagerDelegate: AnyObject {
@@ -28,11 +29,12 @@ public enum MessageHandlerName: String {
     @objc optional func webViewManager(_ manager: WebViewManager, didReceivePictureInPictureMessage message: WKScriptMessage)
     @objc optional func webViewManager(_ manager: WebViewManager, didReceiveTokenErrorMessage message: WKScriptMessage)
     @objc optional func webViewManager(_ manager: WebViewManager, didReceivePictureInPictureOnMessage message: WKScriptMessage)
+    @objc optional func webViewManager(_ manager: WebViewManager, didReceiveSauceflexOSPictureinPictureMessage message: WKScriptMessage)
     @objc optional func webViewManagerDidStartPictureInPicture(_ manager: WebViewManager)
     @objc optional func webViewManagerDidStopPictureInPicture(_ manager: WebViewManager)
 }
 
-open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigationDelegate {
+open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigationDelegate, WKUIDelegate {
     public var webView: WKWebView!
     var contentController = WKUserContentController()
     private var leftButton: UIButton!
@@ -45,23 +47,65 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
     }
     
     public var pipSize: CGSize = CGSize(width: 100, height: 200)
+    public var pipMode: Bool = false
+    public var openPIP: Bool = false
+    
+    var webViewWidthConstraint: NSLayoutConstraint?
+    var webViewHeightConstraint: NSLayoutConstraint?
     
     open override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleAppDidEnterBackground), name: NSNotification.Name("AppDidEnterBackground"), object: nil)
+        
         configureWebView()
         setupWebViewLayout()
         setupButtons()
+        if openPIP {
+            openPIPView()
+        }
+    }
+    
+    @objc private func handleAppDidEnterBackground() {
+        PIPKit.stopPIPMode()
+        self.view.isHidden = false
+        self.view.isUserInteractionEnabled = false
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+            // 1초 후 실행될 부분
+            // PiP 영상 재생 스크립트 실행
+            
+            
+            let script = """
+    if (document.pictureInPictureElement) {
+        document.pictureInPictureElement.play();
+    }
+    """
+            self.webView.evaluateJavaScript(script) { result, error in
+                if let error = error {
+                    print("JavaScript 실행 오류: \(error)")
+                }
+            }
+        }
+        
     }
     
     public func configureWebView() {
         let configuration = WKWebViewConfiguration()
-        configuration.websiteDataStore = WKWebsiteDataStore.nonPersistent()
+        configuration.websiteDataStore = WKWebsiteDataStore.default()
         configuration.allowsInlineMediaPlayback = true
+        
+        if #available(iOS 10.0, *) {
+            configuration.mediaTypesRequiringUserActionForPlayback = []
+        }
         configuration.userContentController = contentController
         configuration.allowsPictureInPictureMediaPlayback = true
-        
+        if #available(iOS 14.0, *) {
+            configuration.defaultWebpagePreferences.allowsContentJavaScript = true
+        } else {
+            configuration.preferences.javaScriptEnabled = true
+        }
         webView = WKWebView(frame: .zero, configuration: configuration)
         webView.navigationDelegate = self
+        webView.uiDelegate = self
         view.addSubview(webView)
     }
     
@@ -97,7 +141,7 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
         let closeImage = UIImage(named: "CloseButton", in: bundle, compatibleWith: nil)
         let pipImage = UIImage(named: "PIPButton", in: bundle, compatibleWith: nil)
         
-       
+        
         
         // Set button images (images must be added to the project)
         leftButton.setImage(closeImage, for: .normal)
@@ -109,8 +153,8 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
         leftButton.isHidden = true
         rightButton.isHidden = true
         
-        view.addSubview(leftButton)
-        view.addSubview(rightButton)
+        webView.addSubview(leftButton)
+        webView.addSubview(rightButton)
         
         leftButton.translatesAutoresizingMaskIntoConstraints = false
         rightButton.translatesAutoresizingMaskIntoConstraints = false
@@ -143,13 +187,92 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
         }
     }
     
-    public func startPictureInPicture() {
-        PIPKit.startPIPMode()
+    public func cleanupForDismiss() {
+        for name in messageHandlerNames {
+            contentController.removeScriptMessageHandler(forName: name.rawValue)
+        }
+        
+        // PiP 모드를 종료하는 스크립트 실행
+        let script = "if (document.querySelector('video').webkitPresentationMode === 'picture-in-picture') { document.querySelector('video').webkitSetPresentationMode('inline'); }"
+        webView.evaluateJavaScript(script) { result, error in
+            if let error = error {
+                print("PiP 모드 종료 스크립트 실행 오류: \(error)")
+            }
+        }
     }
     
+    private func videoPIP() {
+        let script = """
+            if (document.querySelector('video') && !document.querySelector('video').paused) {
+                document.querySelector('video').webkitSetPresentationMode('picture-in-picture');
+            }
+            """
+        webView.evaluateJavaScript(script, completionHandler: nil)
+    }
+    
+    private func disableVideoPIP() {
+        let name = "window.dispatchEvent(sauceFlexPIP(false));"
+        webView.evaluateJavaScript(name) { (Result, Error) in
+            if let error = Error {
+                print("evaluateJavaScript Error : \(error)")
+            }
+        }
+    }
+    
+    private func openPIPView() {
+        pipMode = true
+        self.view.isHidden = true
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            self.startPictureInPicture()
+            self.view.isHidden = false
+            let name = "window.dispatchEvent(sauceflexPictureInPictureOn);"
+            self.webView.evaluateJavaScript(name) { (Result, Error) in
+                if let error = Error {
+                    print("evaluateJavaScript Error : \(error)")
+                }
+            }
+        }
+        
+        
+    }
+    
+    public func startPictureInPicture() {
+        if pipMode {
+            rightButton.isHidden = false
+            leftButton.isHidden = false
+            PIPKit.startPIPMode()
+        } else {
+            self.view.isHidden = true
+            self.view.isUserInteractionEnabled = false
+            pipSize = CGSize(width: 0, height: 0)
+            PIPKit.startPIPMode()
+            self.videoPIP()
+        }
+    }
     public func stopPictureInPicture() {
-        // Logic to stop PIP
-        PIPKit.dismiss(animated: true)
+        if pipMode {
+            rightButton.isHidden = true
+            leftButton.isHidden = true
+            PIPKit.stopPIPMode()
+        } else {
+            self.view.isHidden = false
+            self.view.isUserInteractionEnabled = true
+            PIPKit.stopPIPMode()
+            self.disableVideoPIP()
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                let script = """
+        if (document.querySelector('video')) {
+            document.querySelector('video').play();
+        }
+        """
+                self.webView.evaluateJavaScript(script) { result, error in
+                    if let error = error {
+                        print("JavaScript 실행 오류: \(error)")
+                    }
+                }
+                
+            }
+        }
     }
     
     public func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
@@ -159,11 +282,10 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
         case MessageHandlerName.issueCoupon.rawValue:
             delegate?.webViewManager?(self, didReceiveIssueCouponMessage: message)
         case MessageHandlerName.enter.rawValue:
-            
             delegate?.webViewManager?(self, didReceiveEnterMessage: message)
         case MessageHandlerName.moveExit.rawValue:
+            PIPKit.dismiss(animated: true)
             delegate?.webViewManager?(self, didReceiveMoveExitMessage: message)
-            stopPictureInPicture()
         case MessageHandlerName.moveLogin.rawValue:
             delegate?.webViewManager?(self, didReceiveMoveLoginMessage: message)
         case MessageHandlerName.moveProduct.rawValue:
@@ -175,12 +297,18 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
         case MessageHandlerName.pictureInPicture.rawValue:
             delegate?.webViewManager?(self, didReceivePictureInPictureMessage: message)
             startPictureInPicture()
-            leftButton.isHidden = false
-            rightButton.isHidden = false
         case MessageHandlerName.tokenError.rawValue:
             delegate?.webViewManager?(self, didReceiveTokenErrorMessage: message)
         case MessageHandlerName.pictureInPictureOn.rawValue:
             delegate?.webViewManager?(self, didReceivePictureInPictureOnMessage: message)
+        case MessageHandlerName.sauceflexOSPictureInPicture.rawValue:
+            if let pipMessage = message.body as? String {
+                if pipMessage == "true" {
+                } else {
+                    stopPictureInPicture()
+                }
+            }
+            delegate?.webViewManager?(self, didReceiveSauceflexOSPictureinPictureMessage: message)
         default:
             break
         }
