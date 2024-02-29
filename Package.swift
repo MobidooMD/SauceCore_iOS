@@ -15,7 +15,7 @@ let package = Package(
         .target(
             name: "SauceCore_iOS",
             resources: [
-                .process("Assets.xcassets")
+                .process("Assets")
             ]),
         .testTarget(
             name: "SauceCore_iOSTests",

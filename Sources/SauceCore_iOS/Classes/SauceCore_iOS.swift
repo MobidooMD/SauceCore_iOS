@@ -134,10 +134,6 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
     private func setupButtons() {
         leftButton = UIButton(type: .custom)
         rightButton = UIButton(type: .custom)
-        guard let bundleURL = Bundle(for: WebViewManager.self).url(forResource: "assets", withExtension: "bundle"),
-              let bundle = Bundle(url: bundleURL) else {
-            return
-        }
         let closeImage = UIImage(named: "CloseButton", in: .module, compatibleWith: nil)
         let pipImage = UIImage(named: "PIPButton", in: .module, compatibleWith: nil)
         

@@ -408,6 +408,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -460,6 +461,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -482,6 +484,7 @@
 			baseConfigurationReference = 4B049A1D8CB729C6126FEC51 /* Pods-SauceCore_iOS_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = PQFD9V79PC;
 				INFOPLIST_FILE = SauceCore_iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -499,6 +502,7 @@
 			baseConfigurationReference = 9FB1FF283841152147328C49 /* Pods-SauceCore_iOS_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = PQFD9V79PC;
 				INFOPLIST_FILE = SauceCore_iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -515,6 +519,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 19CD701BDC9A765FA14CFDA7 /* Pods-SauceCore_iOS_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = PQFD9V79PC;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
@@ -539,6 +544,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F33D6001A195B02F2526955F /* Pods-SauceCore_iOS_Tests.release.xcconfig */;
 			buildSettings = {
+				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = PQFD9V79PC;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
