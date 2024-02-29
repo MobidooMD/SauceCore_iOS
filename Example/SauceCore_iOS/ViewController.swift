@@ -179,7 +179,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let webViewController = WebViewController()
         webViewController.url = url.absoluteString
         webViewController.messageHandlerNames = selectedMessageHandlers
-        webViewController.pipMode = true
+        webViewController.openPIP = true
         PIPKit.show(with: webViewController)
     }
     

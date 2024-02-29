@@ -48,6 +48,7 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
     
     public var pipSize: CGSize = CGSize(width: 100, height: 200)
     public var pipMode: Bool = false
+    public var openPIP: Bool = false
     
     var webViewWidthConstraint: NSLayoutConstraint?
     var webViewHeightConstraint: NSLayoutConstraint?
@@ -59,14 +60,15 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
         configureWebView()
         setupWebViewLayout()
         setupButtons()
+        if openPIP {
+            openPIPView()
+        }
     }
     
     @objc private func handleAppDidEnterBackground() {
         PIPKit.stopPIPMode()
         self.view.isHidden = false
         self.view.isUserInteractionEnabled = false
-        
-        
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
             // 1초 후 실행될 부분
             // PiP 영상 재생 스크립트 실행
@@ -217,6 +219,23 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
         }
     }
     
+    private func openPIPView() {
+        pipMode = true
+        self.view.isHidden = true
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            self.startPictureInPicture()
+            self.view.isHidden = false
+            let name = "window.dispatchEvent(sauceflexPictureInPictureOn);"
+            self.webView.evaluateJavaScript(name) { (Result, Error) in
+                if let error = Error {
+                    print("evaluateJavaScript Error : \(error)")
+                }
+            }
+        }
+        
+        
+    }
+    
     public func startPictureInPicture() {
         if pipMode {
             rightButton.isHidden = false
@@ -257,9 +276,6 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
     }
     
     public func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        print("keaton111")
-        print(message.name
-        )
         switch message.name {
         case MessageHandlerName.customCoupon.rawValue:
             delegate?.webViewManager?(self, didReceiveCustomCouponMessage: message)

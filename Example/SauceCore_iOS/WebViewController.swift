@@ -16,10 +16,13 @@ class WebViewController: WebViewManager {
         super.viewDidLoad()
         self.delegate = self
         self.pipSize = CGSize(width: 100, height: 150)
+       
+       
         // 초기 웹 페이지 로드
         if let url = url {
             self.loadURL(url)
         }
+        
     }
     
 //    // 필요에 따라 WebViewManager에서 정의한 메서드를 오버라이드하여 커스터마이즈할 수 있습니다.
