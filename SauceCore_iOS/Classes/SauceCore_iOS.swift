@@ -66,26 +66,27 @@ open class WebViewManager: UIViewController, WKScriptMessageHandler, WKNavigatio
     }
     
     @objc private func handleAppDidEnterBackground() {
-        PIPKit.stopPIPMode()
-        self.view.isHidden = false
-        self.view.isUserInteractionEnabled = false
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-            // 1초 후 실행될 부분
-            // PiP 영상 재생 스크립트 실행
-            
-            
-            let script = """
-    if (document.pictureInPictureElement) {
-        document.pictureInPictureElement.play();
-    }
-    """
-            self.webView.evaluateJavaScript(script) { result, error in
-                if let error = error {
-                    print("JavaScript 실행 오류: \(error)")
+        if pipMode == false {
+            PIPKit.stopPIPMode()
+            self.view.isHidden = false
+            self.view.isUserInteractionEnabled = false
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                // 1초 후 실행될 부분
+                // PiP 영상 재생 스크립트 실행
+                
+                
+                let script = """
+        if (document.pictureInPictureElement) {
+            document.pictureInPictureElement.play();
+        }
+        """
+                self.webView.evaluateJavaScript(script) { result, error in
+                    if let error = error {
+                        print("JavaScript 실행 오류: \(error)")
+                    }
                 }
             }
         }
-        
     }
     
     public func configureWebView() {

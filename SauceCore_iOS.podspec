@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SauceCore_iOS'
-  s.version          = '0.1.5'
+  s.version          = '0.1.6'
   s.summary          = 'Sauce SDK'
 
 # This description is used to generate tags and improve search results.
