@@ -31,10 +31,10 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '12.0'
   s.swift_versions = '5.0'
 
-  s.source_files = 'Sources/SauceCore_iOS/Classes/**/*.{swift}'
+  s.source_files = 'SauceCore_iOS/Classes/**/*.{swift}'
   
   s.resource_bundles = {
-    'assets' => ['Sources/SauceCore_iOS/Assets/*.xcassets']
+    'assets' => ['SauceCore_iOS/Assets/*.xcassets']
   }
 
   # s.resources = 'SauceCore_iOS/Assets/*.xcassets'
